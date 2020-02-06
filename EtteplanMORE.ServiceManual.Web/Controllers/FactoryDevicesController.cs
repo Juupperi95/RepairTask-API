@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace EtteplanMORE.ServiceManual.Web.Controllers
 {
+    [Produces("application/json")]
     [Route("api/[controller]")]
     public class FactoryDevicesController : Controller
     {
@@ -19,7 +20,7 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP GET: api/factorydevices/
+        ///     Gets all devices in JSON-format
         /// </summary>
         [HttpGet]
         public async Task<IEnumerable<FactoryDeviceDto>> Get()
@@ -36,7 +37,7 @@ namespace EtteplanMORE.ServiceManual.Web.Controllers
         }
 
         /// <summary>
-        ///     HTTP GET: api/factorydevices/1
+        ///     Gets device by its ID
         /// </summary>
         [HttpGet("{id}")]
         public async Task<IActionResult> Get(int id)

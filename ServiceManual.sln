@@ -13,6 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EtteplanMORE.ServiceManual.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EtteplanMORE.ServiceManual.UnitTests", "EtteplanMORE.ServiceManual.UnitTests\EtteplanMORE.ServiceManual.UnitTests.csproj", "{0243164C-C71B-46D7-B4BF-03082CE230C9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{00525A55-1614-478F-AFA4-ED39870A37C3}"
+	ProjectSection(SolutionItems) = preProject
+		DbSetup.sql = DbSetup.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +44,7 @@ Global
 		{DF1323A6-89FB-43AA-AFEE-223346F7E9C9} = {DF3DF591-4736-4C73-99EC-27C4A8873DCA}
 		{BE96519C-38B3-4134-9C37-0933B1571FF3} = {DF3DF591-4736-4C73-99EC-27C4A8873DCA}
 		{0243164C-C71B-46D7-B4BF-03082CE230C9} = {45B07AE1-339E-4C10-9AFA-699507BDB0D7}
+		{00525A55-1614-478F-AFA4-ED39870A37C3} = {DF3DF591-4736-4C73-99EC-27C4A8873DCA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {1C0537FE-2BDA-46C3-83AB-C3C144C8DB17}

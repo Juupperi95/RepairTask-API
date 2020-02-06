@@ -3,49 +3,35 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Threading.Tasks;
+using EtteplanMORE.ServiceManual.ApplicationCore.DBContexts;
 using EtteplanMORE.ServiceManual.ApplicationCore.Entities;
 using EtteplanMORE.ServiceManual.ApplicationCore.Interfaces;
 
 namespace EtteplanMORE.ServiceManual.ApplicationCore.Services
 {
     public class FactoryDeviceService : IFactoryDeviceService
-    {
-        /// <summary>
-        ///     Remove this. Temporary device storage before proper data storage is implemented.
-        /// </summary>
-        private static readonly ImmutableList<FactoryDevice> TemporaryDevices = new List<FactoryDevice>
-        {
-            new FactoryDevice
-            {
-                Id = 1,
-                Name = "Device X",
-                Year = 2001,
-                Type = "Type 10"
-            },
-            new FactoryDevice
-            {
-                Id = 2,
-                Name = "Device Y",
-                Year = 2012,
-                Type = "Type 3"
-            },
-            new FactoryDevice
-            {
-                Id = 3,
-                Name = "Device Z",
-                Year = 1985,
-                Type = "Type 1"
-            }
-        }.ToImmutableList();
+    { 
+        private readonly DatabaseContext _dbContext;
 
+        public FactoryDeviceService(DatabaseContext DbContext)
+        {
+            _dbContext = DbContext;
+        }
+        /// <summary>
+        /// Get all factorydevices that are stored in db in ascending Id order
+        /// </summary>
         public async Task<IEnumerable<FactoryDevice>> GetAll()
         {
-            return await Task.FromResult(TemporaryDevices);
+            var devices = await Task.FromResult(_dbContext.FactoryDevices.OrderBy(d => d.Id).ToList());
+            return devices;
         }
-
+        /// <summary>
+        /// Find factory device from db by id and return it
+        /// </summary>
         public async Task<FactoryDevice> Get(int id)
         {
-            return await Task.FromResult(TemporaryDevices.FirstOrDefault(c => c.Id == id));
+            var device = await Task.FromResult(_dbContext.FactoryDevices.FirstOrDefault(c => c.Id == id));
+            return device;
         }
     }
 }
